@@ -39,6 +39,14 @@ canvas.addEventListener( 'mouseup', function( event ) {
 }, false );
 
 
+function upload(){
+    console.log('Data upload', canvas.toDataURL());
+}
+function clear_canvas(){
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    console.log('clear');
+}
+
 
 
 
