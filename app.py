@@ -15,7 +15,7 @@ def index():
 @app.route("/recognize/", methods=['POST'])
 def recognize():
     if 'file' not in request.files:
-        return return jsonify({
+        return jsonify({
                 "success": False,
                 "error" : "Please upload a image",
                 "data" : {
