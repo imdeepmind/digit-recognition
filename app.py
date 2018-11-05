@@ -17,7 +17,14 @@ def recognize():
     print (request.files)
     # checking if the file is present or not.
     if 'file' not in request.files:
-        return "No file found"
+        return return jsonify({
+                "success": False,
+                "error" : "Please upload a image",
+                "data" : {
+                    "digit" : "",
+                    "message" : ""
+                }
+            })
     
     file = request.files['file']
     print(file)
@@ -45,9 +52,18 @@ def recognize():
         print(classes)
         return jsonify({
             "success" : True,
-            "digit" : str(classes[0])
+            "error" : "",
+            "data" : {
+                "digit" : classes[0],
+                "message" : ""
+            }
         })
     else:
-        return "Invalid Image"
-
-
+        return jsonify({
+            "success": False,
+            "error" : "Invalid Image",
+            "data" : {
+                "digit" : "",
+                "message" : ""
+            }
+        })
