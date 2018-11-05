@@ -3,7 +3,11 @@ from keras.models import load_model
 from keras.preprocessing import image
 from PIL import Image
 import numpy as np
+from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def index():
