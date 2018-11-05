@@ -14,8 +14,6 @@ def index():
 
 @app.route("/recognize/", methods=['POST'])
 def recognize():
-    print (request.files)
-    # checking if the file is present or not.
     if 'file' not in request.files:
         return return jsonify({
                 "success": False,
@@ -27,7 +25,6 @@ def recognize():
             })
     
     file = request.files['file']
-    print(file)
     file.save("temp.png")
 
     img_width, img_height = 28,28
@@ -42,14 +39,12 @@ def recognize():
                     optimizer='rmsprop',
                     metrics=['accuracy'])
 
-        # predicting images
         img = image.load_img('temp.png', target_size=(img_width, img_height))
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
 
         images = np.vstack([x])
         classes = model.predict_classes(images, batch_size=10)
-        print(classes)
         return jsonify({
             "success" : True,
             "error" : "",
