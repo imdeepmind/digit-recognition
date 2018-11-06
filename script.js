@@ -54,9 +54,14 @@ function upload(){
 		url: url,
 		data: {
 			"file" : data
-		},
+        },
+        beforeSend: function(){
+            $('.ans').html('analysing image');
+        },
 		success: function(e){
-			console.log(e);
+			if (e.success){
+                $('.ans').html(e.data.digit);
+            }
 		}
 	});
 }
