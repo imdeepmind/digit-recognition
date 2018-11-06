@@ -42,20 +42,22 @@ canvas.addEventListener( 'mouseup', function( event ) {
 
 function clear_canvas(){
     c.clearRect(0, 0, canvas.width, canvas.height);
-    console.log('clear');
+	c.fillStyle = 'rgba(0,0,0,1)';
+    c.fillRect(0,0,window.innerWidth,window.innerHeight);
 }
-
-
-
-
-
-
-
-// var link = document.createElement('a');
-//     link.innerHTML = 'download image';
-// link.addEventListener('click', function(ev) {
-//     console.log(canvas.toDataURL());
-//     // link.href = canvas.toDataURL();
-//     // link.download = "mypainting.png";
-// }, false);
-// document.body.appendChild(link);
+function upload(){
+	var data = canvas.toDataURL();
+	var url = 'https://desolate-bastion-43688.herokuapp.com/recognize/';
+	
+	$.ajax({
+		type: "POST", 
+		url: url,
+		data: {
+			"file" : data
+		},
+		success: function(e){
+			console.log(e);
+		}
+	});
+}
+clear_canvas()
