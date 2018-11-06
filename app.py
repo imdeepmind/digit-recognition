@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 import base64
 from io import BytesIO
 from PIL import Image
+from keras.backend import clear_session
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -52,18 +53,17 @@ def recognize():
                 model.compile(loss='binary_crossentropy',
                             optimizer='rmsprop',
                             metrics=['accuracy'])
-
                 img = image.load_img('temp.png', target_size=(img_width, img_height))
                 x = image.img_to_array(img)
                 x = np.expand_dims(x, axis=0)
-
                 images = np.vstack([x])
                 classes = model.predict_classes(images, batch_size=10)
+                clear_session()
                 return jsonify({
                     "success" : True,
                     "error" : "",
                     "data" : {
-                        "digit" : classes[0],
+                        "digit" : str(classes[0]),
                         "message" : ""
                     }
                 })
