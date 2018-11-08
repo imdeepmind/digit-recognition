@@ -1,3 +1,4 @@
+
 var canvas = document.querySelector( 'canvas' ),
 c = canvas.getContext( '2d' ),
 mouseX = 0,
@@ -14,7 +15,7 @@ function draw() {
     if (mousedown) {
         c.fillStyle = colour; 
         c.beginPath();
-        c.arc( mouseX, mouseY, 10 , 0, Math.PI*2, true );
+        c.arc( mouseX, mouseY, 7 , 0, Math.PI*2, true );
         c.closePath();
         c.fill();
     }
@@ -66,3 +67,5 @@ function upload(){
 	});
 }
 clear_canvas()
+
+
