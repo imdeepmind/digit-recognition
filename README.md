@@ -2,7 +2,7 @@
 
 Digit Recognition is a simple project that predicts handwritten digits.
 
-![screenshot from 2019-03-05 11-26-31](https://user-images.githubusercontent.com/34741145/53783945-9d85fb00-3f39-11e9-8eec-66cbd6f737fe.png)
+![Screenshot from 2019-08-04 20-57-30](https://user-images.githubusercontent.com/34741145/62425763-84f15b00-b6fa-11e9-8c6e-03fa9343a86b.png)
 
 ## Branches
 In this repo, there are 3 branches
