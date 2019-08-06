@@ -27,4 +27,4 @@ Link to colab notebook - https://colab.research.google.com/drive/1JOLiEy8uc-8Jr1
 This branch contains a very simple REST API developed in Flask. This API just uses the model and predict the result.
 
 ## Demo
-https://imdeepmind.ml/digit-recognition
+https://imdeepmind.com/DigitRecognition/
